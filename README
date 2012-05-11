@@ -1,0 +1,42 @@
+
+*** THIS IS UNMAINTAINED. ***
+
+I use it, and it works (worked?), but I wrote it 2 years ago please do not 
+submit bug reports. The code is ugly, I know. 
+
+================================
+Outlets PDU Manager - README
+================================
+
+1.0 Requirements
+A webserver
+php 5.2
+php5-snmp module
+
+1.1 Installation
+Copy this directory and all of its contents to somewhere on your webserver's 
+DocumentRoot. Make sure you have php5-snmp installed. I would also suggest 
+installing the command line snmp tools for debugging as you configure Outlets. 
+
+The default login is:
+Username: admin
+Password: admin
+
+1.2 Configuration
+See the config.php file for details on configuring Outlets. The config layout 
+is fairly simple, easy to read and well documented. The toughest part will be 
+figuring out the OIDs. You can use numeric or textual, I really only had numeric
+available to me when I wrote this. 
+
+Use snmpwalk and copious amounts of guess-work when figuring out OIDs. Also note
+that some PDUs will present their data in multiple OIDs, some writable, some 
+not. Look for patterns and such. For example, if you have a 24 port PDU, and all
+of the outlets are ON, and you see 24 1's or 0's in a row, well that might be 
+your outlet status. I've added a couple for the APC and Tripplite models I use.
+
+2.0 Usage
+Usage of Outlets is fairly straight forward. To change the name of an outlet 
+simply click its name, and enter the new value. Press enter to confirm or esc to
+cancel. Outlets can be switched on or off by clicking the status and selecting
+the desired status from the drop down, then clicking OK. The interface was 
+created with jQuery uses AJAX to read/write data. 
